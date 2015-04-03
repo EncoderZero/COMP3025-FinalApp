@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -22,21 +23,53 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jck-CC-xIB">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="jck-CC-xIB">
                     <rect key="frame" x="100" y="99" width="280" height="281"/>
                     <constraints>
+                        <constraint firstAttribute="height" constant="281" id="Bco-J8-raJ"/>
                         <constraint firstAttribute="width" constant="280" id="enY-qr-EbS"/>
+                        <constraint firstAttribute="height" constant="281" id="wmF-i0-29Q"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Bco-J8-raJ"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="Bco-J8-raJ"/>
+                        </mask>
+                    </variation>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gvh-GF-kus">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="JL_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gvh-GF-kus">
                     <rect key="frame" x="8" y="8" width="62" height="58"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="58" id="ZEW-Kw-dzx"/>
+                        <constraint firstAttribute="width" constant="62" id="koy-dj-T46"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ZEW-Kw-dzx"/>
+                            <exclude reference="koy-dj-T46"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="ZEW-Kw-dzx"/>
+                            <include reference="koy-dj-T46"/>
+                        </mask>
+                    </variation>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="top" secondItem="jck-CC-xIB" secondAttribute="bottom" constant="20" id="6KA-Ib-tnK"/>
                 <constraint firstItem="jck-CC-xIB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="99" id="8xv-IG-u9Q"/>
+                <constraint firstItem="Gvh-GF-kus" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" id="C6n-Hg-ziD">
+                    <variation key="widthClass=compact" constant="20"/>
+                </constraint>
                 <constraint firstAttribute="trailing" secondItem="8ie-xW-0ye" secondAttribute="trailing" constant="8" id="K9K-qv-Biw"/>
+                <constraint firstItem="Gvh-GF-kus" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="SDU-4p-yZ1"/>
                 <constraint firstAttribute="bottom" secondItem="8ie-xW-0ye" secondAttribute="bottom" constant="8" id="YbF-cl-mQl"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="84" id="uZx-ix-5sZ"/>
                 <constraint firstAttribute="trailing" secondItem="jck-CC-xIB" secondAttribute="trailing" constant="100" id="xac-9z-sZ0"/>
@@ -44,7 +77,23 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="C6n-Hg-ziD"/>
+                    <exclude reference="SDU-4p-yZ1"/>
+                </mask>
+            </variation>
+            <variation key="widthClass=compact">
+                <mask key="constraints">
+                    <include reference="C6n-Hg-ziD"/>
+                    <include reference="SDU-4p-yZ1"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="JL_Logo" width="76" height="76"/>
+        <image name="appLogo" width="512" height="512"/>
+    </resources>
 </document>
