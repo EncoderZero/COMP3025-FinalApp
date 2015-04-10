@@ -74,28 +74,33 @@ class FirstViewController: UIViewController {
         // if results are valid data
         if let results = objects {
             // get last entry
-            var match = results[results.count - 1] as NSManagedObject
-            
-            // prep date in specified format
-            var format = NSDateFormatter();
-            format.dateFormat = "hh:mma";
-            var time = match.valueForKey("alarmTime") as NSDate;
-            var timeString = format.stringFromDate(time);
-            
-            // get stored military time and if it exists, set it to militaryTime variable
-            self.militaryTime = match.valueForKey("militaryTime") as Bool;
-            
-            
-            SetAlarm.text = timeString;
+            var match:NSManagedObject;
             if results.count > 0 {
-                for(var i = 0; i < results.count - 1; i++){
-                    match = results[i] as NSManagedObject
-                    managedObjectContext?.deleteObject(match);
+                match = results[results.count - 1] as NSManagedObject
+                // prep date in specified format
+                var format = NSDateFormatter();
+                format.dateFormat = "hh:mma";
+                var time = match.valueForKey("alarmTime") as NSDate;
+                var timeString = format.stringFromDate(time);
+                
+                // get stored military time and if it exists, set it to militaryTime variable
+                if(match.valueForKey("militaryTime") != nil){
+                    self.militaryTime = match.valueForKey("militaryTime") as Bool;                    
                 }
                 
-            } else {
-                println("break");
+                
+                SetAlarm.text = timeString;
+                if results.count > 1 {
+                    for(var i = 0; i < results.count - 1; i++){
+                        match = results[i] as NSManagedObject
+                        managedObjectContext?.deleteObject(match);
+                    }
+                    
+                } else {
+                    println("break");
+                }
             }
+            
         }
     }
 
@@ -126,7 +131,7 @@ class FirstViewController: UIViewController {
             insertIntoManagedObjectContext: managedObjectContext);
         
         alarm.alarmTime = time;
-        
+        alarm.militaryTime = self.militaryTime;
         managedObjectContext?.save(&error)
 
         if let err = error {

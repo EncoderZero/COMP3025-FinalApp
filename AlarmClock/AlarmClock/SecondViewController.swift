@@ -36,20 +36,23 @@ class SecondViewController: UIViewController, MPMediaPickerControllerDelegate {
             error: &error)
         
         if let results = objects {
-            var match = results[results.count - 1] as NSManagedObject
-            
-            var militaryTime = match.valueForKey("militaryTime") as Bool;
-            
-            militaryTimeSwitch.on = militaryTime;
-            
             if results.count > 0 {
-                for(var i = 0; i < results.count - 1; i++){
-                    match = results[i] as NSManagedObject
-                    managedObjectContext?.deleteObject(match);
+                var match = results[results.count - 1] as NSManagedObject
+                
+                if(match.valueForKey("militaryTime") != nil){
+                    var militaryTime = match.valueForKey("militaryTime") as Bool;
+                    militaryTimeSwitch.on = militaryTime;
                 }
                 
-            } else {
-                println("break");
+                if results.count > 1 {
+                    for(var i = 0; i < results.count - 1; i++){
+                        match = results[i] as NSManagedObject
+                        managedObjectContext?.deleteObject(match);
+                    }
+                    
+                } else {
+                    println("break");
+                }
             }
         }
     }
