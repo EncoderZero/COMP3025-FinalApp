@@ -17,6 +17,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var CurrentTime: UILabel!
     @IBOutlet weak var SetAlarm: UILabel!
     @IBOutlet weak var DateTimeSelection: UIDatePicker!
+    var militaryTime: Bool = true;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,9 @@ class FirstViewController: UIViewController {
         
     }
     
+    /**
+     * Called when view is rendered
+     **/
     override func viewDidAppear(animated: Bool) {
         loadAlarm();
         updateTime()
@@ -36,13 +40,17 @@ class FirstViewController: UIViewController {
      * Updates the time each second
      **/
     func updateTime() {
-        var date = NSDate()
-        var calendar = NSCalendar.currentCalendar()
-        var components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
+        // get current time
+        var date = NSDate();
+        var format = NSDateFormatter();
+        format.dateFormat = "hh:mm:ssa";
+        var time = format.stringFromDate(date)
+        /**var components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
         var hour = components.hour
         var minutes = components.minute
         var seconds = components.second
-        CurrentTime.text = "\(hour):\(minutes):\(seconds)"
+        CurrentTime.text = "\(hour):\(minutes):\(seconds)"**/
+        CurrentTime.text = time;
         
     }
     
@@ -59,19 +67,25 @@ class FirstViewController: UIViewController {
         
         var error: NSError?
         
+        // get results from coredata
         var objects = managedObjectContext?.executeFetchRequest(request,
             error: &error)
         
+        // if results are valid data
         if let results = objects {
+            // get last entry
             var match = results[results.count - 1] as NSManagedObject
             
+            // prep date in specified format
             var format = NSDateFormatter();
             format.dateFormat = "hh:mma";
             var time = match.valueForKey("alarmTime") as NSDate;
             var timeString = format.stringFromDate(time);
             
-            println(time);
-            println(timeString);
+            // get stored military time and if it exists, set it to militaryTime variable
+            self.militaryTime = match.valueForKey("militaryTime") as Bool;
+            
+            
             SetAlarm.text = timeString;
             if results.count > 0 {
                 for(var i = 0; i < results.count - 1; i++){

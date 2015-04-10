@@ -12,5 +12,5 @@ import CoreData
 class Entity: NSManagedObject {
 
     @NSManaged var alarmTime: NSDate
-
+    @NSManaged var militaryTime: Bool
 }
