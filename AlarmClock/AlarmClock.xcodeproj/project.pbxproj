@@ -14,6 +14,11 @@
 		794324841AC4B100008C1113 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 794324831AC4B100008C1113 /* Images.xcassets */; };
 		794324871AC4B100008C1113 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 794324851AC4B100008C1113 /* LaunchScreen.xib */; };
 		794324931AC4B100008C1113 /* AlarmClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794324921AC4B100008C1113 /* AlarmClockTests.swift */; };
+		FF2918701AD87993004FAE67 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF29186F1AD87993004FAE67 /* MediaPlayer.framework */; };
+		FF2918721AD87E5E004FAE67 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2918711AD87E5E004FAE67 /* TableViewController.swift */; };
+		FFF3DCCD1AD734DA00AC414F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFF3DCCC1AD734DA00AC414F /* CoreData.framework */; };
+		FFF3DCD01AD7353800AC414F /* Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFF3DCCE1AD7353800AC414F /* Alarm.xcdatamodeld */; };
+		FFF3DCD21AD736DF00AC414F /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF3DCD11AD736DF00AC414F /* Entity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,11 @@
 		7943248C1AC4B100008C1113 /* AlarmClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		794324911AC4B100008C1113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		794324921AC4B100008C1113 /* AlarmClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmClockTests.swift; sourceTree = "<group>"; };
+		FF29186F1AD87993004FAE67 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		FF2918711AD87E5E004FAE67 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		FFF3DCCC1AD734DA00AC414F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FFF3DCCF1AD7353800AC414F /* Alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Alarm.xcdatamodel; sourceTree = "<group>"; };
+		FFF3DCD11AD736DF00AC414F /* Entity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF2918701AD87993004FAE67 /* MediaPlayer.framework in Frameworks */,
+				FFF3DCCD1AD734DA00AC414F /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +73,8 @@
 		7943246C1AC4B0FF008C1113 = {
 			isa = PBXGroup;
 			children = (
+				FF29186F1AD87993004FAE67 /* MediaPlayer.framework */,
+				FFF3DCCC1AD734DA00AC414F /* CoreData.framework */,
 				794324771AC4B0FF008C1113 /* AlarmClock */,
 				7943248F1AC4B100008C1113 /* AlarmClockTests */,
 				794324761AC4B0FF008C1113 /* Products */,
@@ -82,10 +96,13 @@
 				7943247A1AC4B0FF008C1113 /* AppDelegate.swift */,
 				7943247C1AC4B0FF008C1113 /* FirstViewController.swift */,
 				7943247E1AC4B0FF008C1113 /* SecondViewController.swift */,
+				FF2918711AD87E5E004FAE67 /* TableViewController.swift */,
 				794324801AC4B0FF008C1113 /* Main.storyboard */,
 				794324831AC4B100008C1113 /* Images.xcassets */,
 				794324851AC4B100008C1113 /* LaunchScreen.xib */,
 				794324781AC4B0FF008C1113 /* Supporting Files */,
+				FFF3DCCE1AD7353800AC414F /* Alarm.xcdatamodeld */,
+				FFF3DCD11AD736DF00AC414F /* Entity.swift */,
 			);
 			path = AlarmClock;
 			sourceTree = "<group>";
@@ -217,8 +234,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7943247F1AC4B0FF008C1113 /* SecondViewController.swift in Sources */,
+				FF2918721AD87E5E004FAE67 /* TableViewController.swift in Sources */,
+				FFF3DCD21AD736DF00AC414F /* Entity.swift in Sources */,
 				7943247B1AC4B0FF008C1113 /* AppDelegate.swift in Sources */,
 				7943247D1AC4B0FF008C1113 /* FirstViewController.swift in Sources */,
+				FFF3DCD01AD7353800AC414F /* Alarm.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +446,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FFF3DCCE1AD7353800AC414F /* Alarm.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FFF3DCCF1AD7353800AC414F /* Alarm.xcdatamodel */,
+			);
+			currentVersion = FFF3DCCF1AD7353800AC414F /* Alarm.xcdatamodel */;
+			path = Alarm.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7943246D1AC4B0FF008C1113 /* Project object */;
 }
