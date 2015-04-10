@@ -10,11 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AlarmClock/FirstViewController.swift"
-            timestampString = "450399282.837482"
+            timestampString = "450401710.050291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140">
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "AddAlarm(_:)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
